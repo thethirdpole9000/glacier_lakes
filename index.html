@@ -1,0 +1,1531 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+      <title>Top 47 most dangerous glacier lakes in the Himalayas</title>
+      <meta name="description" content="Top 47 most dangerous glacier lakes in the Himalayas">
+      <meta name="author" content="Julia Janicki">
+      <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+      <link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;600&family=Work+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+      <script src='https://api.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.js'></script>
+      <link href='https://api.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.css' rel='stylesheet' />
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+      <style>
+      body {
+        margin: 0;
+        padding: 0;
+        color: #0C1B34;
+        font-family: 'Work Sans', serif;
+      }
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+      }
+      h1 {
+        font-size: 17px;
+        line-height: 25px;
+      }
+      h2 {
+        font-size: 15px;
+        line-height: 20px;
+        margin-bottom: 10px;
+      }
+      a {
+        text-decoration: none;
+        color: #2dc4b2;
+      }
+      .subtitle{
+        font-size:16px;
+        font-weight: 600;
+      }
+      #console {
+        position: absolute;
+        width: 300px;
+        margin: 10px;
+        padding: 10px 20px 10px 30px;
+        background-color: #F0F0F1;
+        border-radius: 5px;
+        z-index: 15;
+        transition: 0.3s ease-in-out;
+        box-shadow: 0 1px 1px 0 rgba(66, 66, 66, 0.08), 0 1px 3px 1px rgba(66, 66, 66, 0.16);
+      }
+      .active{
+        transform:translate3d(-280px,0,0);
+        transition: 0.3s ease-in-out;
+      }
+
+      .itemWrapper{
+        margin-top: -20px;
+      }
+
+      #toggleConsole{
+        position:absolute;
+        right:5px;
+        top:0px;
+      }
+      #toggleConsole img{
+        width:16px;
+        opacity: 0.7;
+      }
+      #toggleConsole img:hover{
+        opacity: 0.5;
+        transition: all .5s ease;
+        cursor:pointer;
+      }
+      .toggle {
+        position: relative;
+        height: 14px;
+        width: 35px;
+        border-radius: 15px;
+        background: #cfcfcf;
+        margin: 8px 0;
+      }
+      .toggle input {
+        opacity: 0;
+        width: 100%;
+        height: 200%;
+        position: absolute;
+        top: -7px;
+        left: 0;
+        z-index: 2;
+        margin: 0
+      }
+      .toggle input:nth-child(2):checked {
+        z-index: 1;
+      }
+      .toggle__pointer {
+        position: absolute;
+        top: -3.5px;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        border-radius: 15px;
+        background-color: #bd0026;
+        -webkit-transition: left .15s ease-out;
+        transition: left .15s ease-out;
+      }
+      .toggle input:nth-child(2):checked + .toggle__pointer {
+        left: 18px;
+        background-color: #777777;
+      }
+
+      .toggle2 {
+        position: relative;
+        height: 14px;
+        width: 35px;
+        border-radius: 15px;
+        background: #cfcfcf;
+        margin: 8px 0;
+      }
+      .toggle2 input {
+        opacity: 0;
+        width: 100%;
+        height: 200%;
+        position: absolute;
+        top: -7px;
+        left: 0;
+        z-index: 2;
+        margin: 0
+      }
+      .toggle2 input:nth-child(2):checked {
+        z-index: 1;
+      }
+      .toggle2__pointer {
+        position: absolute;
+        top: -3.5px;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        border-radius: 15px;
+        background-color: #fd8d3c;
+        -webkit-transition: left .15s ease-out;
+        transition: left .15s ease-out;
+      }
+      .toggle2 input:nth-child(2):checked + .toggle2__pointer {
+        left: 18px;
+        background-color: #777777;
+      }
+
+      .toggle3 {
+        position: relative;
+        height: 14px;
+        width: 35px;
+        border-radius: 15px;
+        background: #cfcfcf;
+        margin: 8px 0;
+      }
+      .toggle3 input {
+        opacity: 0;
+        width: 100%;
+        height: 200%;
+        position: absolute;
+        top: -7px;
+        left: 0;
+        z-index: 2;
+        margin: 0
+      }
+      .toggle3 input:nth-child(2):checked {
+        z-index: 1;
+      }
+      .toggle3__pointer {
+        position: absolute;
+        top: -3.5px;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        border-radius: 15px;
+        background-color: #fee090;
+        -webkit-transition: left .15s ease-out;
+        transition: left .15s ease-out;
+      }
+      .toggle3 input:nth-child(2):checked + .toggle3__pointer {
+        left: 18px;
+        background-color: #777777;
+      }
+
+      .toggle4 {
+        position: relative;
+        height: 14px;
+        width: 35px;
+        border-radius: 15px;
+        background: #cfcfcf;
+        margin: 8px 0;
+      }
+      .toggle4 input {
+        opacity: 0;
+        width: 100%;
+        height: 200%;
+        position: absolute;
+        top: -7px;
+        left: 0;
+        z-index: 2;
+        margin: 0
+      }
+      .toggle4 input:nth-child(2):checked {
+        z-index: 1;
+      }
+      .toggle4__pointer {
+        position: absolute;
+        top: -3.5px;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        border-radius: 15px;
+        background-color: #4159A8;
+        -webkit-transition: left .15s ease-out;
+        transition: left .15s ease-out;
+      }
+      .toggle4 input:nth-child(2):checked + .toggle4__pointer {
+        left: 18px;
+        background-color: #777777;
+      }
+
+      .toggle5 {
+        position: relative;
+        height: 14px;
+        width: 35px;
+        border-radius: 15px;
+        background: #cfcfcf;
+        margin: 8px 0;
+      }
+      .toggle5 input {
+        opacity: 0;
+        width: 100%;
+        height: 200%;
+        position: absolute;
+        top: -7px;
+        left: 0;
+        z-index: 2;
+        margin: 0
+      }
+      .toggle5 input:nth-child(2):checked {
+        z-index: 1;
+      }
+      .toggle5__pointer {
+        position: absolute;
+        top: -3.5px;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        border-radius: 15px;
+        background-color: #40B6DD;
+        -webkit-transition: left .15s ease-out;
+        transition: left .15s ease-out;
+      }
+      .toggle5 input:nth-child(2):checked + .toggle5__pointer {
+        left: 18px;
+        background-color: #777777;
+      }
+
+      .toggle6 {
+        position: relative;
+        height: 14px;
+        width: 35px;
+        border-radius: 15px;
+        background: #cfcfcf;
+        margin: 8px 0;
+      }
+      .toggle6 input {
+        opacity: 0;
+        width: 100%;
+        height: 200%;
+        position: absolute;
+        top: -7px;
+        left: 0;
+        z-index: 2;
+        margin: 0
+      }
+      .toggle6 input:nth-child(2):checked {
+        z-index: 1;
+      }
+      .toggle6__pointer {
+        position: absolute;
+        top: -3.5px;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        border-radius: 15px;
+        background-color: #023858;
+        -webkit-transition: left .15s ease-out;
+        transition: left .15s ease-out;
+      }
+      .toggle6 input:nth-child(2):checked + .toggle6__pointer {
+        left: 18px;
+        background-color: #777777;
+      }
+
+      .flip{
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        opacity: 1;
+      }
+      #console h1,
+      #console h2 {
+        text-align: left;
+      }
+      .verticalLine {
+        margin-right: 5px;
+        border-right: 0.3px solid #ECE8E1;
+      }
+
+      #title {
+        font-family: 'Eczar', serif;
+        color: #0c1b34;
+        font-weight: 700;
+        margin-left: -10px;
+        margin-bottom: 15px;
+      }
+      #title a{
+        color:#0c1b34;
+      }
+      #title a:hover{
+        color: #bd0026;
+        transition: all 1s ease;
+        text-decoration: underline !important;
+      }
+      .mapboxgl-popup,.mapboxgl-popup.one,.mapboxgl-popup.two,.mapboxgl-popup.three {
+        font-family: 'Work Sans', sans-serif;
+        text-align: left;
+        z-index: 20;
+        max-width: 200px !important;
+        min-width: 200px !important;
+        /* transform:none !important; */
+      }
+      .mapboxgl-popup-content {
+        font-family: 'Work Sans', sans-serif;
+        padding: 0;
+      }
+      .mapboxgl-popup-content-wrapper {
+        padding: 1%;
+      }
+      .mapboxgl-popup-content h3 {
+        text-align: left;
+        font-size:16px;
+        margin: 0;
+        display: block;
+        padding: 15px;
+        font-weight: 700;
+        margin-top: -5px;
+      }
+      .mapboxgl-popup.one h3 {
+        background: #bd0026 !important;
+        color: #fff;
+      }
+      .mapboxgl-popup.two h3 {
+        background: #fd8d3c !important;
+        color: #fff;
+      }
+      .mapboxgl-popup.three h3 {
+        background: #fee090 !important;
+        color: #fff;
+        /* text-shadow: 1px 1px 2px rgba(0,0,0,0.75); */
+      }
+
+      .mapboxgl-popup-content h4 {
+        margin: 0;
+        display: block;
+        font-size:14px;
+        padding: 10px;
+        font-weight: 400;
+      }
+      .mapboxgl-container {
+        cursor: pointer;
+      }
+      .mapboxgl-popup-anchor-top>.mapboxgl-popup-content {
+        margin-top: 3px;
+      }
+      .mapboxgl-popup-anchor-top>.mapboxgl-popup-tip {
+        border-bottom-color: rgb(61, 59, 59);
+      }
+      .mapboxgl-popup-close-button{
+        transform:scale(2);
+        color:white;
+        padding:0px;
+        margin-right: 10px;
+      }
+      .mapboxgl-popup-close-button:hover,.mapboxgl-popup-close-button:active,.mapboxgl-popup-close-button:target{
+        background:none !important;
+        border: none !important;
+        outline: none!important;
+        color:#cfcfcf;
+        transition: all 0.5s ease;
+      }
+      .filters{
+        margin-top: 20px;
+      }
+      .legend.label{
+        display:inline;
+      }
+      .legend img{
+        width:10px;
+        height:10px;
+        display:inline;
+      }
+      .label{
+        color:black;
+        font-size:12px;
+        font-weight:400;
+      }
+      .instruction{
+        margin-left: -15px;
+        margin-top:20px;
+      }
+      .instruction p{
+        color:#4159A8;
+        font-weight: 700;
+        font-size:12px;
+      }
+      .marginTop10{
+        margin-top: -5px;
+      }
+      .marginTop20{
+        margin-top: 20px;
+      }
+      .button {
+        margin-bottom: 10px;
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 1.5;
+        text-transform: uppercase;
+        background-color: none;
+        max-width: 200px;
+        text-align: center;
+        -webkit-transition: all .5s ease;
+        -moz-transition: all .5s ease;
+        -ms-transition: all .5s ease;
+        transition: all .5s ease;
+        padding: 10px;
+      }
+      .button.one{
+        color: #bd0026;
+        border: 1.5px solid  #bd0026;
+      }
+      .button.two{
+        color: #fd8d3c;
+        border: 1.5px solid  #fd8d3c;
+      }
+      .button.three{
+        color: #fee090;
+        border: 1.5px solid  #fee090;
+      }
+
+      .button.one a{
+        color: #bd0026;
+      }
+      .button.two a{
+        color: #fd8d3c;
+      }
+      .button.three a{
+        color: #fee090;
+      }
+
+      .button:hover {
+        cursor: pointer;
+        -webkit-transition: all .5s ease;
+        -moz-transition: all .5s ease;
+        -ms-transition: all .5s ease;
+        transition: all .5s ease;
+      }
+      a:hover{
+        text-decoration: none !important;
+      }
+      .item{
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 10px;
+      }
+      .item2{
+        display: inline-block;
+        margin-left: 2px;
+        font-size: 12px;
+      }
+      .item3{
+        display: inline-block;
+        margin-left: 6px;
+        font-size: 12px;
+        width:20px;
+        height:20px;
+      }
+      .popupTitle{
+        font-family: 'Eczar', serif;
+      }
+
+      #loading {
+      top: 0;
+      left: 0;
+      position: fixed;
+      display: block;
+      opacity: .7;
+      background-color: #fff;
+      z-index: 99;
+      }
+      #loading-image {
+      position: relative;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: calc(50vh - 80px);
+      z-index: 100;
+      }
+      #loading{
+      width: 100%;
+      text-align: center;
+      height: 100%;
+      }
+
+      #minCircle{
+        width: 13px;
+        height: 13px;
+      }
+
+      #maxCircle{
+        width: 38px;
+        height: 38px;
+      }
+
+      #legendInstruction p:hover{
+        cursor:pointer;
+        opacity: 0.7;
+        transition: all .4s ease;
+      }
+      #logo{
+        position: absolute;
+        bottom:22px;
+        right:0px;
+        z-index:5;
+      }
+      #logo img{
+        width:120px;
+      }
+      @media screen and (max-width: 800px) {
+
+        #console {
+          width: 200px;
+        }
+        .active{
+          transform:translate3d(-180px,0,0);
+        }
+        .label{
+          font-size:10px;
+          margin-left:-5px;
+        }
+        .item2{
+          font-size:10px;
+          margin-left:2px;
+        }
+        h1{
+          font-size:16px;
+        }
+        h2{
+          font-size:12px;
+        }
+        #console{
+          padding: 10px 20px;
+        }
+        #title{
+          margin-top:-10px;
+        }
+
+        #legendCol1{
+          margin-left: -10px !important;
+        }
+        #legendCol2{
+          margin-left: -20px !important;
+        }
+      }
+      @media screen and (max-width: 600px) {
+        body{
+        font-size:11px !important;
+        }
+        #title{
+          font-size:14px;
+        }
+        .subtitle{
+          font-size:12px;
+        }
+        .active{
+        transform:translate3d(-180px,0,0);
+        }
+        .label{
+        font-size:10px;
+        margin-left:-5px;
+        }
+        .item2{
+        font-size:9px;
+        margin-left:1px;
+        }
+        .item3{
+          width: 15px;
+          height: 15px;
+        }
+        .legendTitleAll{
+          margin-top: -5px;
+        }
+        #sliderControls{
+          margin-top: -10px;
+        }
+        h1{
+        font-size:14px;
+        }
+        h2{
+        font-size:12px;
+        }
+        .instruction p{
+          font-size:10px;
+        }
+        #legendCol1{
+        margin-left: -10px !important;
+        }
+        #legendCol2{
+        margin-left: -20px !important;
+        }
+
+        .marginTop20,.marginTop10{
+          margin-top: -18px;
+        }
+
+       .mapboxgl-popup-anchor-top .mapboxgl-popup-tip,
+       .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip,
+       .mapboxgl-popup-anchor-center .mapboxgl-popup-tip,
+       .mapboxgl-popup-anchor-left .mapboxgl-popup-tip,
+       .mapboxgl-popup-anchor-right .mapboxgl-popup-tip,
+       .mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip,
+       .mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip,
+       .mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip,
+       .mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip{
+           display:none !important;
+       }
+       #logo{
+         position: absolute;
+         bottom:15px;
+         right:0px;
+       }
+       #logo img{
+         width:100px;
+       }
+      }
+      @media screen and (max-width: 550px) {
+        .mapboxgl-popup{
+              transform:none !important;
+              top: 20px;
+              left: 0;
+              right: 0;
+              margin-left: auto;
+              margin-right: auto;
+          }
+
+          .mapboxgl-popup-close-button{
+            padding-top: 2px;
+            transform:scale(2.8);
+          }
+      }
+      </style>
+   </head>
+   <body>
+      <div id='map'></div>
+      <div id='logo'>
+        <img src="./img/logo.png"/>
+      </div>
+      <div id='console'>
+         <div class="verticalLine">
+            <span id="toggleConsole">
+            <img src="./img/toggle.png" />
+            </span>
+            <h1 id='title'>Top 47 most dangerous glacier lakes in the Himalayas</h1>
+            <div class='row itemWrapper'>
+               <h2 class="subtitle"> Hazard Rank </h2>
+            </div>
+            <div class="itemWrapper">
+              <div class='row toggle item filters' id="filter1">
+                 <input id='' type="radio" value="layer1On" name="toggle" checked='checked'>
+                 <input id='' type="radio" value="layer1Off" name="toggle">
+                 <div class="toggle__pointer"></div>
+              </div>
+              <div class="item">
+                 <h2 id="one">I</h2>
+              </div>
+            </div>
+            <div class="itemWrapper">
+               <div class='row toggle2 item filters' id="filter2">
+                  <input id='' type="radio" value="layer2On" name="toggle2" checked='checked'>
+                  <input id='' type="radio" value="layer2Off" name="toggle2">
+                  <div class="toggle2__pointer"></div>
+               </div>
+               <div class="item">
+                  <h2 id="two">II</h2>
+               </div>
+            </div>
+            <div class="itemWrapper">
+               <div class='row toggle3 item filters' id="filter3">
+                  <input id='' type="radio" value="layer3On" name="toggle3" checked='checked'>
+                  <input id='' type="radio" value="layer3Off" name="toggle3">
+                  <div class="toggle3__pointer"></div>
+               </div>
+               <div class="item">
+                  <h2 id="three">III</h2>
+               </div>
+            </div>
+
+            <div class='row itemWrapper marginTop10'>
+               <h2 class="subtitle"> Basins </h2>
+            </div>
+            <div class="itemWrapper">
+              <div class='row toggle4 item filters' id="filter4">
+                 <input id='' type="radio" value="layer4On" name="toggle4" checked='checked'>
+                 <input id='' type="radio" value="layer4Off" name="toggle4">
+                 <div class="toggle4__pointer"></div>
+              </div>
+              <div class="item">
+                 <h2 id="four">Karnali</h2>
+              </div>
+            </div>
+            <div class="itemWrapper">
+               <div class='row toggle6 item filters' id="filter6">
+                  <input id='' type="radio" value="layer6On" name="toggle6" checked='checked'>
+                  <input id='' type="radio" value="layer6Off" name="toggle6">
+                  <div class="toggle6__pointer"></div>
+               </div>
+               <div class="item">
+                  <h2 id="six">Gandaki</h2>
+               </div>
+            </div>
+            <div class="itemWrapper">
+               <div class='row toggle5 item filters' id="filter5">
+                  <input id='' type="radio" value="layer5On" name="toggle5" checked='checked'>
+                  <input id='' type="radio" value="layer5Off" name="toggle5">
+                  <div class="toggle5__pointer"></div>
+               </div>
+               <div class="item">
+                  <h2 id="five">Koshi</h2>
+               </div>
+            </div>
+
+
+            <div class='row itemWrapper marginTop10'>
+               <h2 class="subtitle"> Area of glacial lake </h2>
+               <div class="">
+                  <img id="minCircle" class='item2' src="./img/legend4.svg" /img>
+                  <p id="minCircleVal" class='item2'></p>
+                  <img id="maxCircle" class='item2' src="./img/legend4.svg" /img>
+                  <p id="maxCircleVal" class='item2'></p>
+               </div>
+            </div>
+            <div class="instruction itemWrapper" id="instruction">
+               <p class="item">Click on the circles for more information</p>
+            </div>
+         </div>
+         <!-- end line -->
+      </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+      <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.14.2/d3.js"></script>
+      <!-- <script src="./data/lakes.js"></script> -->
+      <script>
+      var windowWidth = $(window).width();
+      var windowHeight = $(window).height();
+      var viewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+      var viewportHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+
+      var mobile = false;
+      var iphone = false;
+      var safari = false;
+
+      $(window).resize(function() {
+          if (windowWidth != $(window).width() || windowHeight != $(window).height()) {
+              location.reload();
+              return;
+          }
+      });
+
+      if (/Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || viewportWidth < 600) {
+          mobile = true;
+      }
+
+      //console.log(mobile);
+
+      if (/iPhone/i.test(navigator.userAgent)) {
+          iphone = true;
+      } else {
+          //console.log(/iPhone/i.test(navigator.userAgent))
+      }
+
+      //if Safari
+      var ua = navigator.userAgent.toLowerCase();
+      if (ua.indexOf('safari') != -1) {
+          if (ua.indexOf('chrome') > -1) { // Chrome
+          } else { // Safari
+              safari = true;
+          }
+      }
+
+      if (viewportWidth < 700) {
+          $("#instruction").css("display", "none");
+      } else {
+          $("#instruction").css("display", "inherit");
+      }
+
+      var legendShow = false;
+
+      mapboxgl.accessToken = 'pk.eyJ1IjoidGhldGhpcmRwb2xlIiwiYSI6ImNLSWVDcWsifQ.vVx5f1hjIvHBeSpaY3NUkQ';
+
+      var map;
+      var geoJsonData = {
+          'type': 'FeatureCollection',
+          'features': []
+      };
+
+      var data1 = {
+          'type': 'FeatureCollection',
+          'features': []
+      };
+
+      var data2 = {
+          'type': 'FeatureCollection',
+          'features': []
+      };
+
+      var data3 = {
+          'type': 'FeatureCollection',
+          'features': []
+      };
+
+      var popup;
+
+      var filter1 = ['==', ['string', ['get', 'Hazard_Rank']], 'I'];
+      var filter2 = ['==', ['string', ['get', 'Hazard_Rank']], 'II'];
+      var filter3 = ['==', ['string', ['get', 'Hazard_Rank']], 'III'];
+
+      var min = 1;
+      var max = 1;
+      var minCircleSize = 5;
+      var maxCircleSize = 20;
+
+      if (mobile) {
+
+          map = new mapboxgl.Map({
+              container: 'map', // container element id
+              style: 'mapbox://styles/thethirdpole/ckdpz2qxd0p2p1illi3gqjxuk',
+              center: [83.909729,28.165737], // initial map center in [lon, lat]
+              zoom: 5,
+              minZoom: 3
+          });
+
+      } else {
+
+          map = new mapboxgl.Map({
+              container: 'map', // container element id
+              style: 'mapbox://styles/thethirdpole/ckfmgwpgp0l4j1arajipf2g11',
+              center: [83.909729,28.165737], // initial map center in [lon, lat]
+              zoom: 7,
+              minZoom: 2
+          });
+
+      }
+
+
+      var consoleHeight = $("#console").height() / 2;
+      $("#toggleConsole").css("top", consoleHeight);
+
+
+      map.on('load', function() {
+
+          init(); // test google sheet
+          $("#toggleConsole").click(function() {
+              $("#console").toggleClass("active");
+              $("#toggleConsole img").toggleClass("flip");
+          });
+
+
+           map.addSource('karnali', {
+              type: 'geojson',
+              data: './data/karnali_dissolved.geojson'
+            });
+
+            map.addSource('koshi', {
+               type: 'geojson',
+               data: './data/koshi_dissolved.geojson'
+             });
+
+             map.addSource('gandaki', {
+                type: 'geojson',
+                data: './data/gandaki_dissolved.geojson'
+              });
+
+            map.addLayer({
+               'id': 'karnali',
+               'type': 'line',
+               'source': 'karnali',
+               'paint': {
+               'line-color': '#4159A8',
+               'line-opacity': 0.6,
+               'line-width':1
+               }
+            });
+
+            map.addLayer({
+               'id': 'karnali2',
+               'type': 'fill',
+               'source': 'karnali',
+               'paint': {
+               'fill-color': '#4159A8',
+               'fill-opacity': 0.1
+               }
+            });
+
+            map.addLayer({
+               'id': 'koshi',
+               'type': 'line',
+               'source': 'koshi',
+               'paint': {
+               'line-color': '#40B6DD',
+               'line-opacity': 1,
+               'line-width':1
+               }
+            });
+
+            map.addLayer({
+               'id': 'koshi2',
+               'type': 'fill',
+               'source': 'koshi',
+               'paint': {
+               'fill-color': '#40B6DD',
+               'fill-opacity': 0.1
+               }
+            });
+
+            map.addLayer({
+               'id': 'gandaki',
+               'type': 'line',
+               'source': 'gandaki',
+               'paint': {
+               'line-color': '#023858',
+               'line-opacity': 0.6,
+               'line-width':1
+               }
+            });
+
+            map.addLayer({
+               'id': 'gandaki2',
+               'type': 'fill',
+               'source': 'gandaki',
+               'paint': {
+               'fill-color': '#023858',
+               'fill-opacity': 0.1
+               }
+            });
+
+
+      });
+
+      if (!mobile) {
+          map.addControl(new mapboxgl.NavigationControl());
+      }
+
+
+
+      function init() {
+          Tabletop.init({
+              key: 'https://docs.google.com/spreadsheets/d/1x9iRWWbM9VZr5necR0xLT_IVCwVZcTFw5TVd8Nj-Bug/edit?usp=sharing',
+              callback: onDataLoad,
+              simpleSheet: true
+          });
+      }
+
+
+      function onDataLoad(data) {
+
+          $('#loading').hide();
+
+          data.forEach(function(row) {
+
+              // to deal with null lat lon values
+
+              if (row.Area == '') {
+
+              } else {
+                  if (+row.Area < min) {
+                      min = +row.Area;
+                  }
+                  if (+row.Area > max) {
+                      max = +row.Area;
+                  }
+              }
+
+              var feature = {
+                  'type': 'Feature',
+                  'properties': {
+                      'longitude': +row.Longitude,
+                      'latitude': +row.Latitude,
+                      'basin': row.Basin,
+                      'sub_basin': row.Sub_Basin,
+                      'area': +row.Area,
+                      'elevation': +row.Elevation,
+                      'hazard_rank': row.Hazard_Rank,
+                      'country': row.Country
+                  },
+                  'geometry': {
+                      'type': 'Point',
+                      'coordinates': [+row.Longitude,+row.Latitude],
+                  }
+              };
+
+              if (row.Hazard_Rank == 'I') {
+                  data1['features'].push(feature);
+                  console.log(feature)
+              }
+
+              if (row.Hazard_Rank == 'II') {
+                  data2['features'].push(feature);
+              }
+
+              if (row.Hazard_Rank == 'III') {
+                  data3['features'].push(feature);
+              }
+
+              geoJsonData['features'].push(feature);
+
+          });
+
+
+          map.addLayer({
+              id: 'layer1',
+              type: 'circle',
+              source: {
+                  type: 'geojson',
+                  data: data1
+              },
+              paint: {
+                  "circle-color": [
+                      "case",
+                      ["==", ["get", "hazard_rank"], 'I'],
+                      "#bd0026",
+                      ["==", ["get", "hazard_rank"], 'II'],
+                      "#fd8d3c",
+                      '#fee090'
+                  ],
+                  'circle-radius': [
+                      'interpolate',
+                      ['linear'],
+                      ['get', 'area'],
+                      min,
+                      minCircleSize,
+                      max,
+                      maxCircleSize
+                  ],
+                  'circle-opacity': 0.7
+              }
+          });
+
+
+          map.addLayer({
+              id: 'layer2',
+              type: 'circle',
+              source: {
+                  type: 'geojson',
+                  data: data2
+              },
+              paint: {
+                  "circle-color": [
+                      "case",
+                      ["==", ["get", "hazard_rank"], 'I'],
+                      "#bd0026",
+                      ["==", ["get", "hazard_rank"], 'II'],
+                      "#fd8d3c",
+                      '#fee090'
+                  ],
+                  'circle-radius': [
+                      'interpolate',
+                      ['linear'],
+                      ['get', 'area'],
+                      min,
+                      minCircleSize,
+                      max,
+                      maxCircleSize
+                  ],
+                  'circle-opacity': 0.7
+              }
+          });
+
+
+          map.addLayer({
+              id: 'layer3',
+              type: 'circle',
+              source: {
+                  type: 'geojson',
+                  data: data3
+              },
+              paint: {
+                  "circle-color": [
+                      "case",
+                      ["==", ["get", "hazard_rank"], 'I'],
+                      "#bd0026",
+                      ["==", ["get", "hazard_rank"], 'II'],
+                      "#fd8d3c",
+                      '#fee090'
+                  ],
+                  'circle-radius': [
+                      'interpolate',
+                      ['linear'],
+                      ['get', 'area'],
+                      min,
+                      minCircleSize,
+                      max,
+                      maxCircleSize
+                  ],
+                  'circle-opacity': 0.7
+              }
+          });
+
+
+
+          $("#minCircleVal").html(`${min} sq.km`);
+          $("#maxCircleVal").html(`${max} sq.km`);
+
+
+          document.getElementById('filter1').addEventListener('change', function(e) {
+
+              // update the map filter
+              if (e.target.value === 'layer1On') {
+                  filter1 = ['==', ['string', ['get', 'hazard_rank']], 'I'];
+              } else {
+                  filter1 = ['!=', ['string', ['get', 'hazard_rank']], 'I'];
+              }
+              map.setFilter('layer1', filter1);
+
+          });
+
+          document.getElementById('filter2').addEventListener('change', function(e) {
+
+              // update the map filter
+              if (e.target.value === 'layer2On') {
+                  filter2 = ['==', ['string', ['get', 'hazard_rank']], 'II'];
+              } else {
+                  filter2 = ['!=', ['string', ['get', 'hazard_rank']], 'II'];
+              }
+              map.setFilter('layer2', filter2);
+
+          });
+
+          document.getElementById('filter3').addEventListener('change', function(e) {
+
+              // update the map filter
+              if (e.target.value === 'layer3On') {
+                  filter3 = ['==', ['string', ['get', 'hazard_rank']], 'III'];
+              } else {
+                  filter3 = ['!=', ['string', ['get', 'hazard_rank']], 'III'];
+              }
+              map.setFilter('layer3', filter3);
+
+          });
+
+          document.getElementById('filter4').addEventListener('change', function(e) {
+
+              //update the map filter
+              if (e.target.value === 'layer4On') {
+                  map.setPaintProperty('karnali','line-opacity',0.6);
+                  map.setPaintProperty('karnali2','fill-opacity',0.1);
+              } else {
+                  map.setPaintProperty('karnali','line-opacity',0);
+                  map.setPaintProperty('karnali2','fill-opacity',0);
+              }
+
+          });
+
+          document.getElementById('filter5').addEventListener('change', function(e) {
+
+              //update the map filter
+              if (e.target.value === 'layer5On') {
+                  map.setPaintProperty('koshi','line-opacity',1);
+                  map.setPaintProperty('koshi2','fill-opacity',0.1);
+              } else {
+                  map.setPaintProperty('koshi','line-opacity',0);
+                  map.setPaintProperty('koshi2','fill-opacity',0);
+              }
+
+          });
+
+          document.getElementById('filter6').addEventListener('change', function(e) {
+
+              //update the map filter
+              if (e.target.value === 'layer6On') {
+                  map.setPaintProperty('gandaki','line-opacity',0.6);
+                  map.setPaintProperty('gandaki2','fill-opacity',0.1);
+              } else {
+                  map.setPaintProperty('gandaki','line-opacity',0);
+                  map.setPaintProperty('gandaki2','fill-opacity',0);
+              }
+
+          });
+
+
+
+
+          map.on('mouseenter', 'layer1', function(e) {
+              map.getCanvas().style.cursor = 'pointer';
+          });
+
+
+          map.on('mouseleave', 'layer1', function() {
+              map.getCanvas().style.cursor = '';
+              // popup.remove();
+          });
+
+          map.on('mouseenter', 'layer2', function(e) {
+              map.getCanvas().style.cursor = 'pointer';
+          });
+
+
+          map.on('mouseleave', 'layer2', function() {
+              map.getCanvas().style.cursor = '';
+              // popup.remove();
+          });
+
+          map.on('mouseenter', 'layer3', function(e) {
+              map.getCanvas().style.cursor = 'pointer';
+          });
+
+
+          map.on('mouseleave', 'layer3', function() {
+              map.getCanvas().style.cursor = '';
+              // popup.remove();
+          });
+
+
+
+          map.on('click', 'layer1', function(e) {
+            console.log(e);
+              map.getCanvas().style.cursor = 'pointer';
+              var latitude = e.features[0].properties.latitude;
+              var longitude = e.features[0].properties.longitude;
+              var basin = e.features[0].properties.basin;
+              var sub_basin = e.features[0].properties.sub_basin;
+              var area = e.features[0].properties.area;
+              var elevation = e.features[0].properties.elevation;
+              var hazard_rank = e.features[0].properties.hazard_rank;
+              var country = e.features[0].properties.country;
+
+
+              while (Math.abs(e.lngLat.lng - latitude) > 180) {
+                  latitude += e.lngLat.lng > latitude ? 360 : -360;
+              }
+
+              var popupClass = "one";
+
+
+                  popup = new mapboxgl.Popup({
+                          closeButton: true,
+                          closeOnClick: true,
+                          className: popupClass
+                      })
+                      .setHTML('<h3 class="popupTitle">' + basin + ' Basin</h3>' +
+                          '<h4><b> Sub-basin: </b>' + sub_basin + '</h4>' +
+                          '<h4><b> Elevation: </b>' + elevation + ' m</h4>' +
+                          '<h4><b> Area: </b>' + area + ' sq. km</h4>' +
+                          '<h4><b> Country: </b>' + country + '</h4>' )
+                      .setLngLat([longitude, latitude])
+                      .addTo(map);
+
+                      console.log(popup);
+
+
+              $(`.button.${popupClass}`).hover(function() {
+                  console.log("hover")
+                  $(".button a").css("color", "white");
+                  $(this).css("background-color", "#bd0026");
+              }, function() {
+                  $(".button a").css("color", "#bd0026");
+                  $(this).css("background-color", "white");
+              });
+              $(".mapboxgl-popup-tip").css("border-bottom-color", "#bd0026");
+
+
+          });
+
+
+          map.on('click', 'layer2', function(e) {
+              map.getCanvas().style.cursor = 'pointer';
+              var latitude = e.features[0].properties.latitude;
+              var longitude = e.features[0].properties.longitude;
+              var basin = e.features[0].properties.basin;
+              var sub_basin = e.features[0].properties.sub_basin;
+              var area = e.features[0].properties.area;
+              var elevation = e.features[0].properties.elevation;
+              var hazard_rank = e.features[0].properties.hazard_rank;
+              var country = e.features[0].properties.country;
+
+              // Ensure that if the map is zoomed out such that multiple
+              // copies of the feature are visible, the popup appears
+              // over the copy being pointed to.
+              while (Math.abs(e.lngLat.lng - latitude) > 180) {
+                  latitude += e.lngLat.lng > latitude ? 360 : -360;
+              }
+
+              var popupClass = "two";
+
+              popup = new mapboxgl.Popup({
+                        closeButton: true,
+                        closeOnClick: true,
+                        className: popupClass
+                  })
+                  .setHTML('<h3 class="popupTitle">' + basin + ' Basin</h3>' +
+                      '<h4><b> Sub-basin: </b>' + sub_basin + '</h4>' +
+                      '<h4><b> Elevation: </b>' + elevation + ' m</h4>' +
+                      '<h4><b> Area: </b>' + area + ' sq. km</h4>' +
+                      '<h4><b> Country: </b>' + country + '</h4>' )
+                  .setLngLat([longitude, latitude])
+                  .addTo(map);
+
+
+              $(`.button.${popupClass}`).hover(function() {
+                  $(".button a").css("color", "white");
+                  $(this).css("background-color", "#fd8d3c");
+              }, function() {
+                  $(".button a").css("color", "#fd8d3c");
+                  $(this).css("background-color", "white");
+              });
+              $(".mapboxgl-popup-tip").css("border-bottom-color", "#fd8d3c");
+
+          });
+
+
+          map.on('click', 'layer3', function(e) {
+            map.getCanvas().style.cursor = 'pointer';
+            var latitude = e.features[0].properties.latitude;
+            var longitude = e.features[0].properties.longitude;
+            var basin = e.features[0].properties.basin;
+            var sub_basin = e.features[0].properties.sub_basin;
+            var area = e.features[0].properties.area;
+            var elevation = e.features[0].properties.elevation;
+            var hazard_rank = e.features[0].properties.hazard_rank;
+            var country = e.features[0].properties.country;
+
+              while (Math.abs(e.lngLat.lng - latitude) > 180) {
+                  latitude += e.lngLat.lng > latitude ? 360 : -360;
+              }
+
+              var popupClass = "three";
+
+              popup = new mapboxgl.Popup({
+                      closeButton: true,
+                      closeOnClick: true,
+                      className: popupClass
+                  })
+                  .setHTML('<h3 class="popupTitle">' + basin + ' Basin</h3>' +
+                      '<h4><b> Sub-basin: </b>' + sub_basin + '</h4>' +
+                      '<h4><b> Elevation: </b>' + elevation + ' m</h4>' +
+                      '<h4><b> Area: </b>' + area + ' sq. km</h4>' +
+                      '<h4><b> Country: </b>' + country + '</h4>' )
+                  .setLngLat([longitude, latitude])
+                  .addTo(map);
+
+
+
+              $(`.button.${popupClass}`).hover(function() {
+                  $(".button a").css("color", "white");
+                  $(this).css("background-color", "#fee090");
+              }, function() {
+                  $(".button a").css("color", "#fee090");
+                  $(this).css("background-color", "white");
+              });
+              $(".mapboxgl-popup-tip").css("border-bottom-color", "#fee090");
+
+          });
+
+
+          //mobile
+
+          map.on('touchstart', 'layer1', function(e) {
+            console.log(e);
+              map.getCanvas().style.cursor = 'pointer';
+              var latitude = e.features[0].properties.latitude;
+              var longitude = e.features[0].properties.longitude;
+              var basin = e.features[0].properties.basin;
+              var sub_basin = e.features[0].properties.sub_basin;
+              var area = e.features[0].properties.area;
+              var elevation = e.features[0].properties.elevation;
+              var hazard_rank = e.features[0].properties.hazard_rank;
+              var country = e.features[0].properties.country;
+
+
+              while (Math.abs(e.lngLat.lng - latitude) > 180) {
+                  latitude += e.lngLat.lng > latitude ? 360 : -360;
+              }
+
+              var popupClass = "one";
+
+
+                  popup = new mapboxgl.Popup({
+                          closeButton: true,
+                          closeOnClick: true,
+                          className: popupClass
+                      })
+                      .setHTML('<h3 class="popupTitle">' + basin + ' Basin</h3>' +
+                          '<h4><b> Sub-basin: </b>' + sub_basin + '</h4>' +
+                          '<h4><b> Elevation: </b>' + elevation + ' m</h4>' +
+                          '<h4><b> Area: </b>' + area + ' sq. km</h4>' +
+                          '<h4><b> Country: </b>' + country + '</h4>' )
+                      .setLngLat([longitude, latitude])
+                      .addTo(map);
+
+                      console.log(popup);
+
+
+              $(`.button.${popupClass}`).hover(function() {
+                  console.log("hover")
+                  $(".button a").css("color", "white");
+                  $(this).css("background-color", "#bd0026");
+              }, function() {
+                  $(".button a").css("color", "#bd0026");
+                  $(this).css("background-color", "white");
+              });
+              $(".mapboxgl-popup-tip").css("border-bottom-color", "#bd0026");
+
+
+          });
+
+
+          map.on('touchstart', 'layer2', function(e) {
+              map.getCanvas().style.cursor = 'pointer';
+              var latitude = e.features[0].properties.latitude;
+              var longitude = e.features[0].properties.longitude;
+              var basin = e.features[0].properties.basin;
+              var sub_basin = e.features[0].properties.sub_basin;
+              var area = e.features[0].properties.area;
+              var elevation = e.features[0].properties.elevation;
+              var hazard_rank = e.features[0].properties.hazard_rank;
+              var country = e.features[0].properties.country;
+
+              // Ensure that if the map is zoomed out such that multiple
+              // copies of the feature are visible, the popup appears
+              // over the copy being pointed to.
+              while (Math.abs(e.lngLat.lng - latitude) > 180) {
+                  latitude += e.lngLat.lng > latitude ? 360 : -360;
+              }
+
+              var popupClass = "two";
+
+              popup = new mapboxgl.Popup({
+                        closeButton: true,
+                        closeOnClick: true,
+                        className: popupClass
+                  })
+                  .setHTML('<h3 class="popupTitle">' + basin + ' Basin</h3>' +
+                      '<h4><b> Sub-basin: </b>' + sub_basin + '</h4>' +
+                      '<h4><b> Elevation: </b>' + elevation + ' m</h4>' +
+                      '<h4><b> Area: </b>' + area + ' sq. km</h4>' +
+                      '<h4><b> Country: </b>' + country + '</h4>' )
+                  .setLngLat([longitude, latitude])
+                  .addTo(map);
+
+
+              $(`.button.${popupClass}`).hover(function() {
+                  $(".button a").css("color", "white");
+                  $(this).css("background-color", "#fd8d3c");
+              }, function() {
+                  $(".button a").css("color", "#fd8d3c");
+                  $(this).css("background-color", "white");
+              });
+              $(".mapboxgl-popup-tip").css("border-bottom-color", "#fd8d3c");
+
+          });
+
+
+          map.on('touchstart', 'layer3', function(e) {
+            map.getCanvas().style.cursor = 'pointer';
+            var latitude = e.features[0].properties.latitude;
+            var longitude = e.features[0].properties.longitude;
+            var basin = e.features[0].properties.basin;
+            var sub_basin = e.features[0].properties.sub_basin;
+            var area = e.features[0].properties.area;
+            var elevation = e.features[0].properties.elevation;
+            var hazard_rank = e.features[0].properties.hazard_rank;
+            var country = e.features[0].properties.country;
+
+              while (Math.abs(e.lngLat.lng - latitude) > 180) {
+                  latitude += e.lngLat.lng > latitude ? 360 : -360;
+              }
+
+              var popupClass = "three";
+
+              popup = new mapboxgl.Popup({
+                      closeButton: true,
+                      closeOnClick: true,
+                      className: popupClass
+                  })
+                  .setHTML('<h3 class="popupTitle">' + basin + ' Basin</h3>' +
+                      '<h4><b> Sub-basin: </b>' + sub_basin + '</h4>' +
+                      '<h4><b> Elevation: </b>' + elevation + ' m</h4>' +
+                      '<h4><b> Area: </b>' + area + ' sq. km</h4>' +
+                      '<h4><b> Country: </b>' + country + '</h4>' )
+                  .setLngLat([longitude, latitude])
+                  .addTo(map);
+
+
+
+              $(`.button.${popupClass}`).hover(function() {
+                  $(".button a").css("color", "white");
+                  $(this).css("background-color", "#fee090");
+              }, function() {
+                  $(".button a").css("color", "#fee090");
+                  $(this).css("background-color", "white");
+              });
+              $(".mapboxgl-popup-tip").css("border-bottom-color", "#fee090");
+
+          });
+
+
+
+
+      }
+       </script>
+    </body>
+    <div id="loading">
+       <img id="loading-image" src="./img/load.gif" alt="Loading..." />
+    </div>
+ </html>
